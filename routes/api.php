@@ -22,7 +22,7 @@ $router = app(Router::class);
 
 $routeConfigV1 = [
     'middleware' => 'cors',
-    'namespace' => 'ErpNET\Auth\v1\Controllers',
+    'namespace' => 'ErpNET\Bot\v1\Controllers',
 //            'prefix' => $this->app['config']->get('debugbar.route_prefix'),
 ];
 
@@ -35,7 +35,7 @@ $router
 //                    'uses'=> 'ApiController@appVersion'
 //                ]);
                 
-                $router->get('/erpnetAuth/{provider}/{id}', ['as'=>'erpnetAuth.login','uses'=> 'ErpnetAuthController@login']);
+                $router->get('/callback/{provider}/{token}', ['as'=>'erpnetBot.callback','uses'=> 'ErpnetBotController@callback']);
 //                $router->get('/delivery/productStock', ['as'=>'delivery.productStock','uses'=> 'DeliveryServiceController@productStock']);
 //                $router->get('/delivery', ['as'=>'delivery.config','uses'=> 'DeliveryServiceController@config']);
 //                $router->post('/delivery', ['as'=>'delivery.package','uses'=> 'DeliveryServiceController@package']);
