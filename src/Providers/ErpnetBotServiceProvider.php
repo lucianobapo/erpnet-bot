@@ -1,10 +1,10 @@
 <?php
 
-namespace ErpNET\Auth\Providers;
+namespace ErpNET\Bot\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-class ErpnetAuthServiceProvider extends ServiceProvider
+class ErpnetBotServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.

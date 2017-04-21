@@ -12,11 +12,6 @@
 */
 
 use Dingo\Api\Routing\Router;
-use Illuminate\Http\Request;
-
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:api');
 
 $router = app(Router::class);
 
@@ -30,10 +25,6 @@ $router
     ->version('v1', function (Router $router) use ($routeConfigV1) {
         $router
             ->group($routeConfigV1, function (Router $router) use ($routeConfigV1) {
-//                $router->get('appVersion', [
-//                    'as'=>'api.appVersion',
-//                    'uses'=> 'ApiController@appVersion'
-//                ]);
                 
                 $router->get('/callback/{provider}/{token}', ['as'=>'erpnetBot.callback','uses'=> 'ErpnetBotController@callback']);
 //                $router->get('/delivery/productStock', ['as'=>'delivery.productStock','uses'=> 'DeliveryServiceController@productStock']);
@@ -41,22 +32,3 @@ $router
 //                $router->post('/delivery', ['as'=>'delivery.package','uses'=> 'DeliveryServiceController@package']);
             });
     });
-
-
-
-//$routeConfigV2 = [
-//    'namespace' => 'ErpNET\Models\v2\Controllers',
-////            'prefix' => $this->app['config']->get('debugbar.route_prefix'),
-//];
-//
-//$router
-//    ->version('v2', function (Router $router) use ($routeConfigV2) {
-//        $router
-//            ->group($routeConfigV2, function (Router $router) {
-//                $router->get('appVersion', [
-//                    'as'=>'api.appVersion',
-//                    'uses'=> 'ApiController@appVersion'
-//                ]);
-//            });
-//
-//    });
