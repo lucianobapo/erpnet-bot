@@ -12,7 +12,7 @@ namespace ErpNET\Bot\v1\Services;
 use Illuminate\Http\Request;
 use ErpNET\Bot\v1\Interfaces\ErpnetBotService;
 
-class ErpnetBotMessengerService implements ErpnetBotService
+class ErpnetBotTelegramService implements ErpnetBotService
 {
 //    protected $providerRepository;
 //    protected $userRepository;
