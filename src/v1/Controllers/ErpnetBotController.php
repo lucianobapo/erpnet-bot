@@ -37,6 +37,9 @@ class ErpnetBotController extends Controller
     public function callback(Request $request, $provider, $token)
     {
         $class = 'ErpNET\\Bot\\v1\\Services\\ErpnetBot' . ucfirst($provider) . 'Service';
+        logger($token);
+        logger(strtoupper($provider));
+        logger(env(strtoupper($provider).'_BOT_TOKEN'));
         if ($token==env(strtoupper($provider).'_BOT_TOKEN')) {
             return response()->json([
                 'error'   => true,
