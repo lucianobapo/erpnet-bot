@@ -1,0 +1,27 @@
+{
+  "name": "ilhanet/erpnet-bot",
+  "license": "MIT",
+  "version": "0.0.1",
+  "authors": [
+    {
+      "name": "Luciano Porto",
+      "email": "luciano.bapo@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^5.5.9 || ^7.0",
+    "ilhanet/erpnet-models": "dev-master"
+  },
+  "require-dev": {
+  },
+  "autoload": {
+    "psr-4": {
+      "ErpNET\\Bot\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "ErpNET\\BotTests\\": "tests/"
+    }
+  }
+}
