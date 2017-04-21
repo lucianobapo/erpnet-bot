@@ -50,12 +50,17 @@ class ErpnetBotController extends Controller
             ]);
         }
 
-        logger($class);
         $this->service = app($class);
 
-        if($this->service->resolveCommand($request))
+        if(!$this->service->resolveCommand($request)){
+            $this->service->unknownCommand($request);
+            return response()->json([
+                'error'   => true,
+                'message' => 'Command not resolved'
+            ]);
+        }
 
-        $allData = '';
+        $allData = $this->service->executeCommand($request);
 
         if (request()->wantsJson()) {
             return response()->json([
