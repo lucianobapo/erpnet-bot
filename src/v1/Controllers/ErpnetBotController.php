@@ -2,7 +2,9 @@
 
 namespace ErpNET\Bot\v1\Controllers;
 
-use ErpNET\Bot\v1\Interfaces\ErpnetBotService;
+//use ErpNET\Bot\v1\Interfaces\ErpnetBotService;
+use Illuminate\Http\Request;
+
 
 /**
  *  Resource representation.
@@ -13,7 +15,7 @@ class ErpnetBotController extends Controller
 {
 
     /*
-     * @var ErpnetBotService
+     * @var \ErpNET\Bot\v1\Interfaces\ErpnetBotService
      */
     protected $service;
 
@@ -34,7 +36,7 @@ class ErpnetBotController extends Controller
      */
     public function callback(Request $request, $provider, $token)
     {
-        $class = 'ErpNET\Bot\v1\Services\ErpnetBot' . ucfirst($provider) . 'Service';
+        $class = 'ErpNET\\Bot\\v1\\Services\\ErpnetBot' . ucfirst($provider) . 'Service';
         if ($token==env(strtoupper($provider).'_BOT_TOKEN')) {
             return response()->json([
                 'error'   => true,
@@ -48,11 +50,11 @@ class ErpnetBotController extends Controller
             ]);
         }
 
-        $this->service = app($class);
+        $this->service = new ($class);
 
-        if($this->service)
+        if($this->service->resolveCommand($request))
 
-        $allData = $this->service->checkUser($provider, $id);
+        $allData = '';
 
         if (request()->wantsJson()) {
             return response()->json([
