@@ -50,7 +50,8 @@ class ErpnetBotController extends Controller
             ]);
         }
 
-        $this->service = new ($class);
+        logger($class);
+        $this->service = app($class);
 
         if($this->service->resolveCommand($request))
 
