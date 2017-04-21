@@ -9,6 +9,7 @@
 
 namespace ErpNET\Bot\v1\Services;
 
+use Illuminate\Http\Request;
 use ErpNET\Bot\v1\Interfaces\ErpnetBotService;
 
 class ErpnetBotMessengerService implements ErpnetBotService
@@ -68,8 +69,12 @@ class ErpnetBotMessengerService implements ErpnetBotService
 //        $this->partnerService = $partnerService;
     }
 
-    public function resolveCommand(\Illuminate\Http\Request $request):boolean
+    /**
+     * @param Request $request
+     * @return bool
+     */
+    public function resolveCommand(Request $request):boolean
     {
-
+        return true;
     }
 }

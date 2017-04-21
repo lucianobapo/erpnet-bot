@@ -2,7 +2,7 @@
 
 namespace ErpNET\Bot\v1\Controllers;
 
-//use ErpNET\Bot\v1\Interfaces\ErpnetBotService;
+use ErpNET\Bot\v1\Interfaces\ErpnetBotService;
 use Illuminate\Http\Request;
 
 
@@ -15,7 +15,7 @@ class ErpnetBotController extends Controller
 {
 
     /*
-     * @var \ErpNET\Bot\v1\Interfaces\ErpnetBotService
+     * @var ErpnetBotService
      */
     protected $service;
 
