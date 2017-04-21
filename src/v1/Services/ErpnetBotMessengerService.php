@@ -73,7 +73,7 @@ class ErpnetBotMessengerService implements ErpnetBotService
      * @param Request $request
      * @return bool
      */
-    public function resolveCommand(Request $request):boolean
+    public function resolveCommand(Request $request)
     {
         return true;
     }
