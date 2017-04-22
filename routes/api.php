@@ -27,6 +27,7 @@ $router
             ->group($routeConfigV1, function (Router $router) use ($routeConfigV1) {
                 
                 $router->get('/callback/{provider}/{token}', ['as'=>'erpnetBot.callback','uses'=> 'ErpnetBotController@callback']);
+                $router->post('/callback/{provider}/{token}', ['as'=>'erpnetBot.callback','uses'=> 'ErpnetBotController@callback']);
 //                $router->get('/delivery/productStock', ['as'=>'delivery.productStock','uses'=> 'DeliveryServiceController@productStock']);
 //                $router->get('/delivery', ['as'=>'delivery.config','uses'=> 'DeliveryServiceController@config']);
 //                $router->post('/delivery', ['as'=>'delivery.package','uses'=> 'DeliveryServiceController@package']);

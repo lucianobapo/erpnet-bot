@@ -40,12 +40,14 @@ class ErpnetBotController extends Controller
         if ($token!=env(strtoupper($provider).'_BOT_TOKEN')) {
             return response()->json([
                 'error'   => true,
+                'warning'   => false,
                 'message' => 'Token Error'
             ]);
         }
         if (!class_exists($class)) {
             return response()->json([
                 'error'   => true,
+                'warning'   => false,
                 'message' => 'No Class: '.$class
             ]);
         }
@@ -55,7 +57,8 @@ class ErpnetBotController extends Controller
         if(!$this->service->resolveCommand($request)){
             $this->service->unknownCommand($request);
             return response()->json([
-                'error'   => true,
+                'error'   => false,
+                'warning'   => true,
                 'message' => 'Command not resolved'
             ]);
         }
@@ -64,7 +67,9 @@ class ErpnetBotController extends Controller
 
         if (request()->wantsJson()) {
             return response()->json([
-                'data' => $allData,
+                'error'   => false,
+                'warning'   => false,
+                'message' => $allData,
             ]);
         }
 
