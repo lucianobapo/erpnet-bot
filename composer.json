@@ -10,6 +10,7 @@
   ],
   "require": {
     "php": "^5.5.9 || ^7.0",
+    "irazasyed/telegram-bot-sdk": "^2.2",
     "ilhanet/erpnet-models": "dev-master"
   },
   "require-dev": {

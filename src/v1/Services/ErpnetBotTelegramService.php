@@ -30,6 +30,8 @@ class ErpnetBotTelegramService implements ErpnetBotService
 //    protected $orderService;
 //    protected $partnerService;
 
+    protected $telegram;
+
     /**
      * Service constructor.
      *
@@ -52,6 +54,7 @@ class ErpnetBotTelegramService implements ErpnetBotService
 //                                PartnerService $partnerService
     )
     {
+//        $this->telegram = new Api(env('TELEGRAM_BOT_TOKEN'));
 //        $this->providerRepository = $providerRepository;
 //        $this->userRepository = $userRepository;
 //        $this->contactRepository = $contactRepository;
