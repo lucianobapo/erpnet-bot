@@ -75,7 +75,7 @@ class ErpnetBotTelegramService implements ErpnetBotService
      */
     public function resolveCommand(Request $request)
     {
-        return true;
+        return false;
     }
     /**
      * @param Request $request
