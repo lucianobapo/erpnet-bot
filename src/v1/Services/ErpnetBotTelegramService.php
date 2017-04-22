@@ -11,6 +11,7 @@ namespace ErpNET\Bot\v1\Services;
 
 use Illuminate\Http\Request;
 use ErpNET\Bot\v1\Interfaces\ErpnetBotService;
+use Telegram\Bot\Api;
 
 class ErpnetBotTelegramService implements ErpnetBotService
 {
@@ -54,7 +55,7 @@ class ErpnetBotTelegramService implements ErpnetBotService
 //                                PartnerService $partnerService
     )
     {
-//        $this->telegram = new Api(env('TELEGRAM_BOT_TOKEN'));
+        $this->telegram = new Api(env('TELEGRAM_BOT_TOKEN'));
 //        $this->providerRepository = $providerRepository;
 //        $this->userRepository = $userRepository;
 //        $this->contactRepository = $contactRepository;
@@ -86,7 +87,12 @@ class ErpnetBotTelegramService implements ErpnetBotService
      */
     public function unknownCommand(Request $request)
     {
-        return true;
+        $response = $this->telegram->sendMessage([
+            'chat_id' => '131489202',
+            'text' => 'teste',
+//            'reply_markup' => $reply_markup
+        ]);
+        return $response;
     }
     /**
      * @param Request $request
