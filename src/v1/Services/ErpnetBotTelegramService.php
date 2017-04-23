@@ -87,10 +87,10 @@ class ErpnetBotTelegramService implements ErpnetBotService
      * @return bool
      */
     public function unknownCommand(Request $request)
-    {
+    {        
         $response = $this->telegram->sendMessage([
             'chat_id' => '131489202',
-            'text' => 'teste',
+            'text' => 'Comando não reconhecido',
 //            'reply_markup' => $reply_markup
         ]);
         return $response;
